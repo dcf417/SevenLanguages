@@ -1,1 +1,0 @@
-This is me going through the exercises in the Pragmatic Programmer book Seven Languages in Seven Weeks.  I've had this book for a while as well as some of the code for the exercises, so I thought I should commit them here for fun. 
