@@ -22,6 +22,10 @@ class Tree2
   def initialize(treeData)
     @children = []
     @node_name = "root"
+    
+    if treeData.length > 0
+      @node_name = treeData.keys()[0]
+    end
   end
   
   def visit_all(&block)
