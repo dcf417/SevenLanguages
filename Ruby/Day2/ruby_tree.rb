@@ -20,12 +20,13 @@ class Tree2
   attr_accessor :children, :node_name
   
   def initialize(treeData)
+    @node_name = treeData.keys[0]
     @children = []
-    @node_name = "root"
     
-    if treeData.length > 0
-      @node_name = treeData.keys()[0]
+    treeData[@node_name].each do |key, value|
+      @children.push(Tree2.new({key => value}))
     end
+    
   end
   
   def visit_all(&block)
@@ -45,3 +46,13 @@ ruby_tree.visit { |node| puts node.node_name }
 
 puts "Visiting entire tree"
 ruby_tree.visit_all { |node| puts node.node_name }
+
+puts "*******Second version of tree*******"
+
+ruby_tree2 = Tree2.new({"Ruby" => {"Reia" => {}, "MacRuby" => {}}})
+
+puts "Visiting a node"
+ruby_tree2.visit { |node| puts node.node_name }
+
+puts "Visiting entire tree"
+ruby_tree2.visit_all { |node| puts node.node_name }
